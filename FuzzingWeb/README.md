@@ -1,4 +1,4 @@
-#  Escaneo de red con BASH
+#  Fuzzing web con BASH
 
 
 <img width="679" height="383" alt="1" src="https://github.com/user-attachments/assets/c2371383-70c2-4cba-a376-1e12a097dcbe" />
