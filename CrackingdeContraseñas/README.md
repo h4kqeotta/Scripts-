@@ -7,15 +7,16 @@
 
 Este script de Bash automatiza el proceso de crackeo de contraseñas por fuerza bruta (usando un diccionario) para dos tipos de archivos protegidos: .zip y bases de datos de contraseñas .kdbx (KeePass) mediante la herramienta John the Ripper.
 
-1. Cabecera y validación de argumentos
+# 1. Cabecera y validación de argumentos
 
-Bash
-#!/bin/bash
 
-if [ $# -ne 2 ]; then
-    echo "Ingresar <DICCIONARIO> <ARCHIVO>"
-    exit 1
-fi
+# #!/bin/bash
+
+# if [ $# -ne 2 ]; then
+  #   echo "Ingresar <DICCIONARIO> <ARCHIVO>"
+#     exit 1
+# fi
+
 #!/bin/bash: Indica que el archivo debe ejecutarse usando el intérprete de Bash.
 
 $# -ne 2: Comprueba si el número de argumentos pasados al script no es igual a 2.
@@ -24,28 +25,30 @@ Si el usuario no pasó exactamente 2 argumentos, muestra cómo se usa (Ingresar 
 
 2. Asignación de variables
 
-Bash
-diccionario="$1"
-archivo="$2"
+
+# diccionario="$1"
+# archivo="$2"
+
 Guarda el primer argumento (la ruta al diccionario/wordlist, por ejemplo rockyou.txt) en la variable diccionario.
 
 Guarda el segundo argumento (el archivo protegido, por ejemplo backup.zip) en la variable archivo.
 
 3. Detección del formato y extracción del hash (case)
 
-Bash
-case "$archivo" in
-    *.zip)
-        zip2john "$archivo" > hash
-        ;;
-    *.kdbx)
-        keepass2john "$archivo" > hash
-        ;;
-    *)
-        echo "Esa opción es incorrecta"
-        exit 1
-        ;;
-esac
+
+# case "$archivo" in
+#     *.zip)
+#         zip2john "$archivo" > hash
+#         ;;
+#     *.kdbx)
+#         keepass2john "$archivo" > hash
+#        ;;
+#     *)
+#         echo "Esa opción es incorrecta"
+#        exit 1
+#        ;;
+# esac
+
 Evalúa la extensión de $archivo:
 
 *.zip: Si termina en .zip, ejecuta zip2john para extraer el hash de la contraseña del archivo ZIP y lo redirige (>) a un archivo temporal llamado hash.
@@ -56,10 +59,11 @@ Evalúa la extensión de $archivo:
 
 4. Ataque por diccionario y limpieza
 
-Bash
-john --wordlist="$diccionario" hash
-john --show hash
-rm hash
+
+# john --wordlist="$diccionario" hash
+# john --show hash
+# rm hash
+
 john --wordlist="$diccionario" hash: Ejecuta John the Ripper para intentar descifrar el hash extraído comparándolo con las contraseñas del diccionario proporcionado.
 
 john --show hash: Muestra en la terminal la contraseña en texto plano si John the Ripper logró crackearla.
