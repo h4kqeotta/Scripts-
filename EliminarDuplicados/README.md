@@ -1,6 +1,6 @@
 #  Detección y Eliminación de Archivos Duplicados
 
-fdupes (Sirve para identificar archivos repetidos)
+fdupes sirve para identificar archivos repetidos
 
 <img width="506" height="325" alt="1" src="https://github.com/user-attachments/assets/0c3862ef-c5bf-4afb-b4ed-8cd67874ae72" />
 
