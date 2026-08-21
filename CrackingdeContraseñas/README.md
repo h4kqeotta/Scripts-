@@ -12,8 +12,8 @@ Este script de Bash automatiza el proceso de crackeo de contraseñas por fuerza 
 
 # #!/bin/bash
 
-# if [ $# -ne 2 ]; then
-  #   echo "Ingresar <DICCIONARIO> <ARCHIVO>"
+### if [ $# -ne 2 ]; then
+##   echo "Ingresar <DICCIONARIO> <ARCHIVO>"
 #     exit 1
 # fi
 
