@@ -10,12 +10,12 @@ Este script de Bash automatiza el proceso de crackeo de contraseñas por fuerza 
 # 1. Cabecera y validación de argumentos
 
 
-# #!/bin/bash
+#### #!/bin/bash
 
-### if [ $# -ne 2 ]; then
-##   echo "Ingresar <DICCIONARIO> <ARCHIVO>"
-#     exit 1
-# fi
+#### if [ $# -ne 2 ]; then
+####   echo "Ingresar <DICCIONARIO> <ARCHIVO>"
+####     exit 1
+#### fi
 
 #!/bin/bash: Indica que el archivo debe ejecutarse usando el intérprete de Bash.
 
@@ -26,8 +26,8 @@ Si el usuario no pasó exactamente 2 argumentos, muestra cómo se usa (Ingresar 
 2. Asignación de variables
 
 
-# diccionario="$1"
-# archivo="$2"
+#### diccionario="$1"
+#### archivo="$2"
 
 Guarda el primer argumento (la ruta al diccionario/wordlist, por ejemplo rockyou.txt) en la variable diccionario.
 
@@ -36,18 +36,18 @@ Guarda el segundo argumento (el archivo protegido, por ejemplo backup.zip) en la
 3. Detección del formato y extracción del hash (case)
 
 
-# case "$archivo" in
-#     *.zip)
-#         zip2john "$archivo" > hash
-#         ;;
-#     *.kdbx)
-#         keepass2john "$archivo" > hash
-#        ;;
-#     *)
-#         echo "Esa opción es incorrecta"
-#        exit 1
-#        ;;
-# esac
+#### case "$archivo" in
+####     *.zip)
+####         zip2john "$archivo" > hash
+####         ;;
+####     *.kdbx)
+####         keepass2john "$archivo" > hash
+####        ;;
+####     *)
+####         echo "Esa opción es incorrecta"
+####        exit 1
+####        ;;
+#### esac
 
 Evalúa la extensión de $archivo:
 
@@ -60,9 +60,9 @@ Evalúa la extensión de $archivo:
 4. Ataque por diccionario y limpieza
 
 
-# john --wordlist="$diccionario" hash
-# john --show hash
-# rm hash
+#### john --wordlist="$diccionario" hash
+#### john --show hash
+#### rm hash
 
 john --wordlist="$diccionario" hash: Ejecuta John the Ripper para intentar descifrar el hash extraído comparándolo con las contraseñas del diccionario proporcionado.
 
