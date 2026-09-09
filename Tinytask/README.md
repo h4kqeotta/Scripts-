@@ -29,6 +29,8 @@ Una herramienta de automatización ligera desarrollada en Python diseñada para 
 
 ---
 
+
+```
 import time
 import threading
 import json
@@ -283,7 +285,7 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = MacroAppGUI(root)
     root.mainloop()
-    
+```
 ---
 
 Le damos a guardar como y en el tipo de archivo seleccionamos "todos los archivos"
